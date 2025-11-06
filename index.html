@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Player Stats Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🏀 NBA Player Stats Explorer</h1>
+        <p>Discover and compare NBA player statistics from the current season</p>
+    </header>
+
+    <main>
+        <section class="controls">
+            <div class="search-container">
+                <label for="playerSearch">Search Players:</label>
+                <input type="text" id="playerSearch" placeholder="Enter player name...">
+            </div>
+            
+            <div class="filter-container">
+                <label for="teamFilter">Filter by Team:</label>
+                <select id="teamFilter">
+                    <option value="">All Teams</option>
+                </select>
+            </div>
+
+            <div class="filter-container">
+                <label for="positionFilter">Filter by Position:</label>
+                <select id="positionFilter">
+                    <option value="">All Positions</option>
+                    <option value="G">Guard</option>
+                    <option value="F">Forward</option>
+                    <option value="C">Center</option>
+                </select>
+            </div>
+
+            <div class="filter-container">
+                <label for="sortBy">Sort by:</label>
+                <select id="sortBy">
+                    <option value="name">Name</option>
+                    <option value="points">Points Per Game</option>
+                    <option value="rebounds">Rebounds Per Game</option>
+                    <option value="assists">Assists Per Game</option>
+                    <option value="steals">Steals Per Game</option>
+                    <option value="blocks">Blocks Per Game</option>
+                </select>
+            </div>
+
+            <button id="loadPlayers" class="load-btn">Load Players</button>
+        </section>
+
+        <section id="errorMessage" class="error-message" style="display: none;"></section>
+
+        <section id="loadingIndicator" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading player data...</p>
+        </section>
+
+        <section id="statsSummary" class="stats-summary" style="display: none;">
+            <h2>Season Summary</h2>
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <span class="summary-label">Total Players</span>
+                    <span class="summary-value" id="totalPlayers">0</span>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-label">Avg Points</span>
+                    <span class="summary-value" id="avgPoints">0.0</span>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-label">Avg Rebounds</span>
+                    <span class="summary-value" id="avgRebounds">0.0</span>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-label">Avg Assists</span>
+                    <span class="summary-value" id="avgAssists">0.0</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="playersContainer" class="players-container"></section>
+    </main>
+
+    <footer>
+        <p>Data provided by <a href="https://www.balldontlie.io/" target="_blank" rel="noopener noreferrer">balldontlie API</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
